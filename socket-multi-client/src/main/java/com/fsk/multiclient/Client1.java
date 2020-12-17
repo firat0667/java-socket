@@ -15,7 +15,7 @@ public class Client1 {
         PrintWriter printWriter = null;
 
         try {
-            socket = new Socket("localhost", 8000);
+            socket = new Socket("localhost", 8080);
             inputStream1 = new DataInputStream(System.in);
             inputStream2 = new DataInputStream(socket.getInputStream());
             printWriter = new PrintWriter(socket.getOutputStream());
@@ -24,7 +24,7 @@ public class Client1 {
         }
 
 
-        System.out.println("Enter Data to Echı Server ( **** Enter QUIT to END ****)");
+        System.out.println("Enter Data to Echo Server ( **** Enter QUIT to END ****)");
 
         String response = null;
 

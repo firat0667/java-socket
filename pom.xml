@@ -12,6 +12,7 @@
     <modules>
         <module>socket-client-handler</module>
         <module>socket-multi-client</module>
+        <module>stackoverflow - socket</module>
     </modules>
 
     <properties>

@@ -6,7 +6,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 public class Client2 {
+
     public static void main(String[] args) throws IOException {
+        String clientName = "Client 2";
         Socket socket = null;
         String line = null;
         DataInputStream inputStream1 = null;
@@ -23,13 +25,13 @@ public class Client2 {
         }
 
 
-        System.out.println("Enter Data to Echı Server ( **** Enter QUIT to END ****)");
+        System.out.println("Enter Data to Echo Server ( **** Enter QUIT to END ****)");
 
         String response = null;
 
         try {
             line = inputStream1.readLine();
-            while (line.compareTo("QUIT") != 0) {
+            while (!line.equals("QUIT")) {
                 printWriter.println(line);
                 printWriter.flush();
                 response = inputStream2.readLine();

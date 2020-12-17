@@ -23,13 +23,13 @@ public class Client3 {
         }
 
 
-        System.out.println("Enter Data to Echı Server ( **** Enter QUIT to END ****)");
+        System.out.println("Enter Data to Echo Server ( **** Enter QUIT to END ****)");
 
         String response = null;
 
         try {
             line = inputStream1.readLine();
-            while (line.compareTo("QUIT") != 0) {
+            while (!line.equals("QUIT")) {
                 printWriter.println(line);
                 printWriter.flush();
                 response = inputStream2.readLine();
