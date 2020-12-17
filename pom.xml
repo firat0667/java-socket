@@ -11,6 +11,7 @@
     <description>Socket Architecture SERVER - CLIENT</description>
     <modules>
         <module>socket-client-handler</module>
+        <module>socket-multi-client</module>
     </modules>
 
     <properties>

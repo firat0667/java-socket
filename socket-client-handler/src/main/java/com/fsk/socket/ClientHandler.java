@@ -22,7 +22,7 @@ public class ClientHandler implements Runnable {
     }
 
 
-    @SneakyThrows
+
     @Override
     public void run() {
         try {
@@ -37,12 +37,13 @@ public class ClientHandler implements Runnable {
         }catch (IOException e){
             System.err.println("IO Exception in client handler: " + e.getMessage());
             System.err.println(e.getStackTrace());
-        }catch (Exception e){
-            System.err.println("EXCEPTION in client handler: " + e.getMessage());
-            System.err.println(e.getStackTrace());
         } finally {
             out.close();
-            in.close();
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
