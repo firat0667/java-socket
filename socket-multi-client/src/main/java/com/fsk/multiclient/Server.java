@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Optional;
 
 public class Server {
 
@@ -18,39 +19,22 @@ public class Server {
         String serverMsg = "";
 
 
-        serverSocket = new ServerSocket(8080);
+        
+        serverSocket = new ServerSocket(8000);
 
         System.out.println();
-
-        /*
-
-        System.out.println("************************** SERVER INFORMATION **************************");
-        System.out.println();
-        System.out.println("Server Socket Channel Name.................: " + serverSocket.getChannel());
-        System.out.println("Server Socket INet Address.................: " + serverSocket.getInetAddress());
-        System.out.println("Server Socket Local Port...................: " + serverSocket.getLocalPort());
-        System.out.println("Server Socket Local Socket Address.........: " + serverSocket.getLocalSocketAddress());
-        System.out.println();
-
-         */
-
         System.out.println(".......... Server listening ..........");
-
         System.out.println();
-
-
-
 
         while (true){
             socket = serverSocket.accept();
             System.out.println();
-            System.out.println("Connection Estanlished");
+            System.out.println("Connection Established");
             System.out.println();
             System.out.println(socket.getInetAddress().getHostAddress() + "-----> Host Address");
             System.out.println(socket.getInetAddress().getCanonicalHostName() + "-----> Canoncial Host Name");
             System.out.println(socket.getChannel() + " -----> Socket Get Channel");
             System.out.println();
-
 
             ServerThread serverThread = new ServerThread(socket);
             serverThread.start();

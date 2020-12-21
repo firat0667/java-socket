@@ -34,14 +34,18 @@ public class ServerThread extends Thread{
                 line = inputStream1.readLine();
             }
 
-            inputStream1.close();
-            printWriter.close();
-            socket.close();
+            destroyConnect();
 
-            System.out.println("Connection destroyed.!");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void destroyConnect() throws IOException {
+        inputStream1.close();
+        printWriter.close();
+        socket.close();
+        System.out.println("Connection destroyed.!");
     }
 }

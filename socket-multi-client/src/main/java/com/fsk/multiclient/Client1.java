@@ -15,7 +15,7 @@ public class Client1 {
         PrintWriter printWriter = null;
 
         try {
-            socket = new Socket("localhost", 8080);
+            socket = new Socket("localhost", 8000);
             inputStream1 = new DataInputStream(System.in);
             inputStream2 = new DataInputStream(socket.getInputStream());
             printWriter = new PrintWriter(socket.getOutputStream());
@@ -40,7 +40,6 @@ public class Client1 {
 
             inputStream1.close();
             printWriter.close();
-            inputStream2.close();
 
             System.out.println("Connection destroy..!");
 
