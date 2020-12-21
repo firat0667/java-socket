@@ -1,6 +1,7 @@
 package com.fsk.socket;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class Server {
     private static final ExecutorService pool = Executors.newFixedThreadPool(7);
 
     public static void main(String[] args) throws IOException {
-        ServerSocket listener = new ServerSocket(1905);
+
+        ServerSocket listener = new ServerSocket(8000);
 
         while (true) {
 
@@ -27,7 +29,7 @@ public class Server {
             Socket client = listener.accept();
             System.out.println("[SERVER] Connected to Client.");
 
-            ClientHandler clientThread = new ClientHandler(client);
+            ClientHandler clientThread = new ClientHandler(client, clients);
             clients.add(clientThread);
             pool.execute(clientThread);
 
